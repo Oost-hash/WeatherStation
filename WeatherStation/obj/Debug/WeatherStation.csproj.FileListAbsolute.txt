@@ -1,0 +1,13 @@
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\WeatherStation.exe.config
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\WeatherStation.exe
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\WeatherStation.pdb
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.csprojResolveAssemblyReference.cache
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.Form1.resources
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.Properties.Resources.resources
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.csproj.GenerateResource.Cache
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.exe
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.pdb
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\Newtonsoft.Json.xml
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\MySql.Data.dll
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.aboutbox.resources
