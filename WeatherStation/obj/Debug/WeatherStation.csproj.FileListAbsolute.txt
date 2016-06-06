@@ -11,6 +11,4 @@ D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug
 D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\Newtonsoft.Json.xml
 D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\bin\Debug\MySql.Data.dll
 D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.aboutbox.resources
-D:\GitHub\WeatherStation\WeatherStation\bin\Debug\WeatherStation.exe.config
-D:\GitHub\WeatherStation\WeatherStation\obj\Debug\WeatherStation.exe
-D:\GitHub\WeatherStation\WeatherStation\obj\Debug\WeatherStation.pdb
+D:\Dropbox\Stenden\Periode 4\C#\Huiswerk\WeatherStation\WeatherStation\obj\Debug\WeatherStation.splash.resources

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using MySql.Data.MySqlClient;
@@ -20,7 +21,15 @@ namespace WeatherStation
         private bool _locked;
         public Form1()
         {
+            //Splash screen
+            Thread t = new Thread(new ThreadStart(SplashStart));
+            t.Start();
+
+            Thread.Sleep(5000);
+
             InitializeComponent();
+
+            t.Abort();
 
             //initialse Api
             _api = new Api();
@@ -47,6 +56,11 @@ namespace WeatherStation
 
             //Get current weather
             InsertData();
+        }
+
+        public void SplashStart()
+        {
+            Application.Run(new splash());
         }
 
         /// <summary>
@@ -348,6 +362,7 @@ namespace WeatherStation
         private void conOptions_Click(object sender, EventArgs e)
         {
             weatherTabs.SelectTab(optionTab);
+            WindowState = FormWindowState.Normal;
         }
 
         private void conRefresh_Click(object sender, EventArgs e)
@@ -365,7 +380,7 @@ namespace WeatherStation
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                contextMenu.Show(Cursor.Draw(contextMenu, ));
+                contextMenu.Show(MousePosition);
             }
         }
     }
