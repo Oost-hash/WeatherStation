@@ -365,7 +365,7 @@ namespace WeatherStation
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                contextMenu.Show();
+                contextMenu.Show(Cursor.Draw(contextMenu, ));
             }
         }
     }
