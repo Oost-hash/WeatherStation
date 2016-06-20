@@ -7,10 +7,10 @@ using MySql.Data.MySqlClient;
 
 namespace WeatherStation
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         //Fields for access API.cs
-        private Api _api;
+        private readonly Api _api;
         private dynamic _data;
 
         //Fields for Database connection
@@ -19,10 +19,11 @@ namespace WeatherStation
 
         //Lock timer interval form running code
         private bool _locked;
-        public Form1()
+
+        public MainWindow()
         {
             //Splash screen
-            Thread t = new Thread(new ThreadStart(SplashStart));
+            Thread t = new Thread(SplashStart);
             t.Start();
 
             Thread.Sleep(5000);
@@ -74,7 +75,7 @@ namespace WeatherStation
             //Get labels text from API
             city.Text = (string)_data["name"];
             clouds.Text = (string)_data["weather"][0]["description"];
-            air.Text = (string)_data["main"]["humidity"] + "%";
+            air.Text = (string)_data["main"]["humidity"] + @"%";
 
             //Raw Values Temperture
             double tempRaw = (double)_data["main"]["temp"];
@@ -84,20 +85,20 @@ namespace WeatherStation
             //Check if metric or imperial
             if (Properties.Settings.Default.Units == "metric")
             {
-                temp.Text = Math.Round(tempRaw, 1) +"°C";
-                minTemp.Text = Math.Round(minTempRaw, 1) + "°C";
-                maxTemp.Text = Math.Round(maxTempRaw, 1) + "°C";
+                temp.Text = Math.Round(tempRaw, 1) + @"°C";
+                minTemp.Text = Math.Round(minTempRaw, 1) + @"°C";
+                maxTemp.Text = Math.Round(maxTempRaw, 1) + @"°C";
             }
             else
             {
-                temp.Text = Math.Round(tempRaw, 1) + "°F";
-                minTemp.Text = Math.Round(minTempRaw, 1) + "°F";
-                maxTemp.Text = Math.Round(maxTempRaw, 1) + "°F";
+                temp.Text = Math.Round(tempRaw, 1) + @"°F";
+                minTemp.Text = Math.Round(minTempRaw, 1) + @"°F";
+                maxTemp.Text = Math.Round(maxTempRaw, 1) + @"°F";
             }    
 
             //Get icon string from API and post Image
             string iconString = _data["weather"][0]["icon"];
-            icon.ImageLocation = "http://openweathermap.org/img/w/" + iconString + ".png";
+            icon.ImageLocation = @"http://openweathermap.org/img/w/" + iconString + @".png";
 
             //Get and Set update time
             DateTime date = DateTime.Now;
@@ -137,12 +138,12 @@ namespace WeatherStation
             //checks if not empty or any numbers
             if (String.IsNullOrWhiteSpace(txtbCity.Text))
             {
-                lblErrorPlace.Text = "Vul een plaats in";
+                lblErrorPlace.Text = @"Vul een plaats in";
                 lblErrorPlace.Visible = true;
                 error = true;
             } else if(int.TryParse(txtbCity.Text, out i))
             {
-                lblErrorPlace.Text = "Vul een plaats in";
+                lblErrorPlace.Text = @"Vul een plaats in";
                 lblErrorPlace.Visible = true;
                 error = true;
             }
@@ -150,12 +151,12 @@ namespace WeatherStation
             //checks if not empty and numbers are used
             if (String.IsNullOrWhiteSpace(txtbInterval.Text))
             {
-                lblErrorInterval.Text = "Vul een aantal seconden in";
+                lblErrorInterval.Text = @"Vul een aantal seconden in";
                 lblErrorInterval.Visible = true;
                 error = true;
             } else if (!int.TryParse(txtbInterval.Text, out i))
             {
-                lblErrorInterval.Text = "Alleen cijfers gebruiken";
+                lblErrorInterval.Text = @"Alleen cijfers gebruiken";
                 lblErrorInterval.Visible = true;
                 error = true;
             }
@@ -276,7 +277,7 @@ namespace WeatherStation
         /// <summary>
         /// Get all the data for the chart from today
         /// </summary>
-        private void getData()
+        private void GetData()
         {
             //DataBase connection
             DatabaseConection();
@@ -309,7 +310,7 @@ namespace WeatherStation
                 //Data out of the database into variables
                 string cityChart = (string)reader["city"];
                 int humidity = (int)reader["humidity"];
-                decimal temp = (decimal) reader["temp"];
+                decimal tempCity = (decimal) reader["temp"];
                 decimal tempMin = (decimal)reader["temp_min"];
                 decimal tempMax = (decimal)reader["temp_max"];
 
@@ -330,7 +331,7 @@ namespace WeatherStation
 
                 //Add the points to the chart
                 chart1.Series["Luchtvochtigheid"].Points.AddXY(time, humidity);
-                chart1.Series[cityChart].Points.AddY(temp);
+                chart1.Series[cityChart].Points.AddY(tempCity);
                 chart1.Series["Minimale Tempratuur"].Points.AddY(tempMin);
                 chart1.Series["Maximale Tempratuur"].Points.AddY( tempMax);
                 
@@ -346,7 +347,7 @@ namespace WeatherStation
         /// <param name="e"></param>
         private void EnterTab(object sender, EventArgs e)
         {
-            getData();
+            GetData();
         }
 
         private void conClose_Click(object sender, EventArgs e)
@@ -378,7 +379,7 @@ namespace WeatherStation
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 contextMenu.Show(MousePosition);
             }
